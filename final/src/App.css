@@ -12,6 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.dictionary{
+  width:50%;
+}
 .centered {
   /* height: 100vh; Magic here */
   display: flex;

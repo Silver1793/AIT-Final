@@ -13,7 +13,7 @@ function Hangman() {
   const other = "https://richardthisisatest.herokuapp.com";
 
   useEffect(() => {
-    axios.get(other + "/words").then(function (response) {
+    axios.get(/*other*/ baseUrl + "/words").then(function (response) {
       setWord(response.data);
     });
   }, []);
@@ -29,8 +29,7 @@ function Hangman() {
       .map((letter) => (guessed.includes(letter) ? letter : " _ "));
   };
   const reset = () => {
-    console.log("HERE");
-    axios.get(other + "/words").then(function (response) {
+    axios.get(/*other*/ baseUrl + "/words").then(function (response) {
       setWord(response.data);
     });
     setOver(false);
