@@ -5,12 +5,12 @@ import axios from "axios";
 
 function Hangman() {
   const [mistake, setMistake] = useState(0);
-  const [word, setWord] = useState(""); //useState(chooseRandom());
+  const [word, setWord] = useState("");
   const [over, setOver] = useState(false);
   const [guessed, setGuessed] = useState([]);
   const [input, setInput] = useState("");
   const baseUrl = process.env.baseURL || "http://localhost:6001";
-  const other = "https://richardthisisatest.herokuapp.com";
+  const other = "https://infinite-hollows-22494.herokuapp.com/";
 
   useEffect(() => {
     axios.get(/*other*/ baseUrl + "/words").then(function (response) {
@@ -44,7 +44,7 @@ function Hangman() {
     if (word.includes(e.target.value) === false) {
       setMistake((prev) => prev + 1);
     }
-    setGuessed((old) => [...old, e.target.value]); //guessed.add(e.target.value));
+    setGuessed((old) => [...old, e.target.value]);
   };
 
   const genButtonsAlpha = () => {
@@ -66,7 +66,7 @@ function Hangman() {
     if (word.includes(input) === false) {
       setMistake((prev) => prev + 1);
     }
-    setGuessed((old) => [...old, input]); //guessed.add(e.target.value));
+    setGuessed((old) => [...old, input]);
     console.log("HERE");
     setInput("");
   };
