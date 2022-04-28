@@ -2,16 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 
+const baseUrl = process.env.baseURL || "http://localhost:6001";
+const other = "https://infinite-hollows-22494.herokuapp.com";
+
 function Trial() {
   const [x, setX] = useState([]);
   const [words, setWords] = useState([]);
   const [input, setInput] = useState([]);
   const [post, setPost] = useState("");
   useEffect(() => {
-    axios.get("http://localhost:6001/dictionary").then(function (response) {
-      const temp = response.data;
-      setX(temp);
-      setWords(temp);
+    axios.get(other + "/dictionary").then(function (response) {
+      async function fetchData() {
+        await axios.get(other + "/dictionary").then(function (response) {
+          const temp = response.data;
+          setX(temp);
+          // console.log(x);
+          setWords(temp);
+        });
+      }
+      fetchData();
+      // const temp = response.data;
+      // setX(temp);
+      // setWords(temp);
     });
   }, [post, setPost]);
   const handleSubmit = (e) => {
@@ -34,7 +46,7 @@ function Trial() {
     axios
       .post("http://localhost:6001/add", post)
       .then((res) => {
-        console.log("Success");
+        // console.log("Success");
         setPost("");
       })
       .catch((err) => {
