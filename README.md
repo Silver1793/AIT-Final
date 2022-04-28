@@ -6,21 +6,17 @@ Im planning on creating a hangman game where people have a certain amount of liv
 
 Data Model
 
-The application will store Users, Lists of words
+The application will store Words and Highscore
 
 users can have one list containing mulitple words (via references)
-each user has their own name and password
 each word has its own name and length
 
 {
-username: "richardli",
-hash: // a password hash,
-score: 0 //Starts off as 0 for all users
+score: 0
 }
 An Example List with Embedded Items:
 
 {
-user: // a reference to a User object
 name: "Word List",
 words: [
 { name: "silver", length: "6"},
@@ -37,9 +33,6 @@ Wireframes
 /hangman - is the page verification for users where they can log in
 https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-Silver1793/blob/master/frame-layout/Screen%20Shot%202022-03-25%20at%204.10.34%20PM.png
 
-/hangman/signup - if they are a new user they can sign up to become a user
-https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-Silver1793/blob/master/frame-layout/Screen%20Shot%202022-03-25%20at%204.13.38%20PM.png
-
 /hangman/play - is the actual game which has a bunch of blanks and allows the user to input keys and guess the word.
 https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-Silver1793/blob/master/frame-layout/Screen%20Shot%202022-03-25%20at%204.18.42%20PM.png
 
@@ -51,9 +44,7 @@ https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-Silver1793
 
 User Stories or Use Cases
 
-as non-registered user, I can register a new account with the site
-as a user, I can log in to the site
-as a user, I can view my score which is 0 if this is the first time logged in
+as a user, I can view my score which is 0
 as a user, I can input keys and try and guess the word
 as a user, I can see the list of words
 as a user, I can create my own word and add it to the list where it will be saved later
